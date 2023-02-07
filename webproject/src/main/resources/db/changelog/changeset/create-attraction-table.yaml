@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_attraction_table
+      author: Савельев_Денис
+      changes:
+        - createTable:
+            tableName: attraction
+            columns:
+              - column:
+                  name: id
+                  type: INTEGER
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: attraction_pkey
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: date
+                  type: DATETIME
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+              - column:
+                  name: type
+                  type: VARCHAR(255)
+              - column:
+                  name: city_id
+                  type: INTEGER
+  - changeSet:
+      id: add_foreign_key_attraction_to_city
+      author: Савельев_Денис
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: city_id
+            baseTableName: attraction
+            constraintName: jawdnaw832o39jfp42h7
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: city
+            validate: true

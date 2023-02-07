@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_city_table
+      author: Савельев_Денис
+      changes:
+        - createTable:
+            tableName: city
+            columns:
+              - column:
+                  name: id
+                  type: INTEGER
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: city_pkey
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: population
+                  type: VARCHAR(255)
+              - column:
+                  name: metro
+                  type: BOOLEAN
+              - column:
+                  name: country
+                  type: VARCHAR(255)
